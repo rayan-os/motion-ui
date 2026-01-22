@@ -23,21 +23,17 @@ interface ChatMessage {
 }
 
 const foundPrograms: Program[] = [
-  { name: "Computer Programming", school: "Niagara College", duration: "2 years", color: "from-blue-500/20 to-cyan-500/20" },
-  { name: "Computer Science", school: "Seneca Polytechnic", duration: "3 years", color: "from-purple-500/20 to-pink-500/20" },
-  { name: "Software Development", school: "George Brown", duration: "2 years", color: "from-amber-500/20 to-orange-500/20" },
+  { name: "Computer Programming", school: "Diploma", duration: "2 years", color: "from-blue-500/20 to-cyan-500/20" },
+  { name: "Computer Science", school: "Degree", duration: "4 years", color: "from-purple-500/20 to-pink-500/20" },
+  { name: "Software Development", school: "Diploma", duration: "2 years", color: "from-amber-500/20 to-orange-500/20" },
 ];
 
 const chatFlow: ChatMessage[] = [
-  { id: "1", role: "assistant", content: "Hi! I'm Jackie, your counsellor at Passage. What would you like to study?" },
+  { id: "1", role: "assistant", content: "Hi, I'm Jackie! What program would you like to study?" },
   { id: "2", role: "user", content: "computer science" },
-  { id: "3", role: "assistant", content: "Great choice! Which province?" },
-  { id: "4", role: "user", content: "ontario" },
-  { id: "5", role: "assistant", content: "What's your education level?" },
-  { id: "6", role: "user", content: "highschool" },
-  { id: "7", role: "assistant", content: "Found 3 programs for you:", programs: foundPrograms },
-  { id: "8", role: "user", content: "Computer Programming looks good" },
-  { id: "9", role: "assistant", content: "Application submitted!", showApplication: true },
+  { id: "3", role: "assistant", content: "Here are some programs for you:", programs: foundPrograms },
+  { id: "4", role: "user", content: "Computer Programming looks good" },
+  { id: "5", role: "assistant", content: "Application submitted!", showApplication: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -170,27 +166,13 @@ export default function AgentJackieDemo() {
 
         // Exchange 1: computer science
         await typeAndSend("computer science", 1);
-        await new Promise(r => setTimeout(r, 400));
+        await new Promise(r => setTimeout(r, 800));
 
-        // Exchange 2: ontario
+        // Exchange 2: select program
         const inputPos2 = getPos("chat-input");
         if (inputPos2) setCursorPosition(inputPos2);
         await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("ontario", 3);
-        await new Promise(r => setTimeout(r, 400));
-
-        // Exchange 3: highschool
-        const inputPos3 = getPos("chat-input");
-        if (inputPos3) setCursorPosition(inputPos3);
-        await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("highschool", 5);
-        await new Promise(r => setTimeout(r, 800));
-
-        // Exchange 4: select program
-        const inputPos4 = getPos("chat-input");
-        if (inputPos4) setCursorPosition(inputPos4);
-        await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("Computer Programming looks good", 7);
+        await typeAndSend("Computer Programming looks good", 3);
 
         // Hide cursor
         setCursorVisible(false);
@@ -301,7 +283,7 @@ export default function AgentJackieDemo() {
                           </div>
                           <div className="text-[11px] text-white/50">
                             <p>Computer Programming</p>
-                            <p className="text-white/30">Niagara College · 2 years</p>
+                            <p className="text-white/30">Diploma · 2 years</p>
                           </div>
                         </motion.div>
                       )}
