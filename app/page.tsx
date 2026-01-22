@@ -35,6 +35,20 @@ export default function HomePage() {
           >
             Policy to Code - Workflow Builder
           </Link>
+          
+          <Link 
+            href="/pulse-demo"
+            className="px-8 py-4 bg-[#FF9500] text-white font-medium rounded-lg hover:bg-[#FF9500]/80 transition"
+          >
+            Pulse Demo - AI Support Agent (Mark)
+          </Link>
+          
+          <Link 
+            href="/lens-demo"
+            className="px-8 py-4 bg-[#10B981] text-white font-medium rounded-lg hover:bg-[#10B981]/80 transition"
+          >
+            Lens Demo - AI Processor (David)
+          </Link>
         </div>
       </div>
     </main>

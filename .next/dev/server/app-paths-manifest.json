@@ -1,4 +1,9 @@
 {
+  "/jackie-demo/page": "app/jackie-demo/page.js",
+  "/lens-demo/page": "app/lens-demo/page.js",
   "/orbit-demo/page": "app/orbit-demo/page.js",
-  "/policy-demo/page": "app/policy-demo/page.js"
+  "/page": "app/page.js",
+  "/policy-demo/page": "app/policy-demo/page.js",
+  "/pulse-demo/page": "app/pulse-demo/page.js",
+  "/training-demo/page": "app/training-demo/page.js"
 }
