@@ -9,6 +9,13 @@ export default function HomePage() {
         
         <div className="flex flex-col gap-4">
           <Link 
+            href="/orbit-demo"
+            className="px-8 py-4 bg-[#F97316] text-white font-medium rounded-lg hover:bg-[#F97316]/80 transition"
+          >
+            Orbit Demo - AI Agent Orchestration
+          </Link>
+          
+          <Link 
             href="/jackie-demo"
             className="px-8 py-4 bg-[#007AFF] text-white font-medium rounded-lg hover:bg-[#007AFF]/80 transition"
           >
