@@ -42,11 +42,9 @@ const foundPrograms: Program[] = [
 ];
 
 const chatFlow: ChatMessage[] = [
-  { id: "1", role: "assistant", content: "Hi, I'm Jackie! I can help you find the right program. What are you aiming for — tech, healthcare, or trades?" },
-  { id: "2", role: "user", content: "Tech" },
-  { id: "3", role: "assistant", content: "Great. Upload your transcript, I'll pre-check eligibility and shortlist programs." },
-  { id: "4", role: "user", content: "Uploaded" },
-  { id: "5", role: "assistant", content: "You're eligible! Top matches are ready:", programs: foundPrograms, showApplication: true },
+  { id: "1", role: "assistant", content: "Hi, I'm Jackie! Tell me a bit about yourself and what you'd like to study." },
+  { id: "2", role: "user", content: "I'm from Cameroon, looking for tech programs in Canada" },
+  { id: "3", role: "assistant", content: "Great! Here are some programs that match your profile:", programs: foundPrograms, showApplication: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -177,15 +175,8 @@ export default function AgentJackieDemo() {
         if (inputPos) setCursorPosition(inputPos);
         await new Promise(r => setTimeout(r, 300));
 
-        // User says Tech
-        await typeAndSend("Tech", 1);
-        await new Promise(r => setTimeout(r, 600));
-
-        // User uploads transcript
-        const inputPos2 = getPos("chat-input");
-        if (inputPos2) setCursorPosition(inputPos2);
-        await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("Uploaded", 3);
+        // User shares bio
+        await typeAndSend("I'm from Cameroon, looking for tech programs in Canada", 1);
 
         // Hide cursor
         setCursorVisible(false);
