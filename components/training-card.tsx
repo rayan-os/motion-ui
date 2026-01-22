@@ -430,11 +430,12 @@ export default function TrainingCard() {
           break;
         }
         case "type": {
-          if (step.text) {
-            for (const char of step.text.split("")) {
+          const text = step.text;
+          if (text) {
+            for (const char of text.split("")) {
               if (cancelled) break;
               setSearchText((p) => p + char);
-              await new Promise((r) => setTimeout(r, (step.duration || 1000) / step.text.length));
+              await new Promise((r) => setTimeout(r, (step.duration || 1000) / text.length));
             }
           }
           break;
