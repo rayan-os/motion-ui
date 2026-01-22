@@ -1,3 +1,4 @@
 {
-  "/orbit-demo/page": "app/orbit-demo/page.js"
+  "/orbit-demo/page": "app/orbit-demo/page.js",
+  "/policy-demo/page": "app/policy-demo/page.js"
 }

@@ -52,28 +52,44 @@ const availableAgents = [
 ];
 const integrations = [
     {
-        id: "sis",
-        name: "Student Information System",
-        icon: "📚",
-        category: "Core"
+        id: "ellucian",
+        name: "Ellucian Banner",
+        category: "SIS"
     },
     {
-        id: "crm",
-        name: "Salesforce CRM",
-        icon: "☁️",
+        id: "peoplesoft",
+        name: "Oracle PeopleSoft",
+        category: "ERP"
+    },
+    {
+        id: "workday",
+        name: "Workday Student",
+        category: "HCM"
+    },
+    {
+        id: "canvas",
+        name: "Canvas",
+        category: "LMS"
+    },
+    {
+        id: "slate",
+        name: "Slate by Technolutions",
         category: "CRM"
     },
     {
-        id: "email",
-        name: "Email Server",
-        icon: "✉️",
-        category: "Communication"
+        id: "salesforce",
+        name: "Salesforce Education Cloud",
+        category: "CRM"
     },
     {
-        id: "calendar",
-        name: "Calendar System",
-        icon: "📅",
-        category: "Scheduling"
+        id: "okta",
+        name: "Okta",
+        category: "Identity"
+    },
+    {
+        id: "entra",
+        name: "Microsoft Entra ID",
+        category: "Identity"
     }
 ];
 // ─────────────────────────────────────────────────────────────
@@ -127,12 +143,12 @@ const VirtualCursor = ({ position, clicking, visible })=>/*#__PURE__*/ (0, __TUR
                         strokeWidth: "1.5"
                     }, void 0, false, {
                         fileName: "[project]/components/orbit-demo.tsx",
-                        lineNumber: 54,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/orbit-demo.tsx",
-                    lineNumber: 53,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 clicking && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -153,18 +169,18 @@ const VirtualCursor = ({ position, clicking, visible })=>/*#__PURE__*/ (0, __TUR
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/orbit-demo.tsx",
-                    lineNumber: 57,
+                    lineNumber: 60,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/orbit-demo.tsx",
-            lineNumber: 46,
+            lineNumber: 49,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/orbit-demo.tsx",
-        lineNumber: 44,
+        lineNumber: 47,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 function OrbitDemo() {
@@ -218,7 +234,7 @@ function OrbitDemo() {
                 setIsDeploying(false);
                 setIsDeployed(false);
                 setCursorVisible(false);
-                await new Promise((r)=>setTimeout(r, 1000));
+                await new Promise((r)=>setTimeout(r, 800));
                 // Show cursor
                 setCursorVisible(true);
                 await new Promise((r)=>setTimeout(r, 400));
@@ -231,7 +247,7 @@ function OrbitDemo() {
                 setSelectedAgents([
                     "mark"
                 ]);
-                await new Promise((r)=>setTimeout(r, 350));
+                await new Promise((r)=>setTimeout(r, 300));
                 // Click on Jackie
                 const jackiePos = getPos("agent-jackie");
                 if (jackiePos) setCursorPosition(jackiePos);
@@ -241,7 +257,7 @@ function OrbitDemo() {
                     "mark",
                     "jackie"
                 ]);
-                await new Promise((r)=>setTimeout(r, 350));
+                await new Promise((r)=>setTimeout(r, 300));
                 // Click on David
                 const davidPos = getPos("agent-david");
                 if (davidPos) setCursorPosition(davidPos);
@@ -252,7 +268,7 @@ function OrbitDemo() {
                     "jackie",
                     "david"
                 ]);
-                await new Promise((r)=>setTimeout(r, 350));
+                await new Promise((r)=>setTimeout(r, 300));
                 // Click on Ella
                 const ellaPos = getPos("agent-ella");
                 if (ellaPos) setCursorPosition(ellaPos);
@@ -273,34 +289,46 @@ function OrbitDemo() {
                 setCurrentStep(2);
                 await new Promise((r)=>setTimeout(r, 600));
                 // STEP 2: Connect Systems
-                // Click on SIS
-                const sisPos = getPos("int-sis");
-                if (sisPos) setCursorPosition(sisPos);
+                // Click on Ellucian Banner
+                const ellucianPos = getPos("int-ellucian");
+                if (ellucianPos) setCursorPosition(ellucianPos);
                 await new Promise((r)=>setTimeout(r, 400));
                 await click();
                 setConnectedIntegrations([
-                    "sis"
+                    "ellucian"
                 ]);
-                await new Promise((r)=>setTimeout(r, 350));
-                // Click on CRM
-                const crmPos = getPos("int-crm");
-                if (crmPos) setCursorPosition(crmPos);
+                await new Promise((r)=>setTimeout(r, 300));
+                // Click on Canvas
+                const canvasPos = getPos("int-canvas");
+                if (canvasPos) setCursorPosition(canvasPos);
                 await new Promise((r)=>setTimeout(r, 350));
                 await click();
                 setConnectedIntegrations([
-                    "sis",
-                    "crm"
+                    "ellucian",
+                    "canvas"
                 ]);
-                await new Promise((r)=>setTimeout(r, 350));
-                // Click on Email
-                const emailPos = getPos("int-email");
-                if (emailPos) setCursorPosition(emailPos);
+                await new Promise((r)=>setTimeout(r, 300));
+                // Click on Slate
+                const slatePos = getPos("int-slate");
+                if (slatePos) setCursorPosition(slatePos);
                 await new Promise((r)=>setTimeout(r, 350));
                 await click();
                 setConnectedIntegrations([
-                    "sis",
-                    "crm",
-                    "email"
+                    "ellucian",
+                    "canvas",
+                    "slate"
+                ]);
+                await new Promise((r)=>setTimeout(r, 300));
+                // Click on Okta
+                const oktaPos = getPos("int-okta");
+                if (oktaPos) setCursorPosition(oktaPos);
+                await new Promise((r)=>setTimeout(r, 350));
+                await click();
+                setConnectedIntegrations([
+                    "ellucian",
+                    "canvas",
+                    "slate",
+                    "okta"
                 ]);
                 await new Promise((r)=>setTimeout(r, 500));
                 // Click Deploy
@@ -315,7 +343,7 @@ function OrbitDemo() {
                 setIsDeployed(true);
                 // Hide cursor
                 setCursorVisible(false);
-                // Hold
+                // Hold on deployed screen
                 await new Promise((r)=>setTimeout(r, 3500));
             }
         };
@@ -331,7 +359,7 @@ function OrbitDemo() {
         className: "relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-[#0a0a0a]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
             ref: containerRef,
-            className: "relative z-20 w-[580px]",
+            className: "relative z-20 w-[600px]",
             initial: {
                 opacity: 0,
                 y: 20
@@ -361,7 +389,7 @@ function OrbitDemo() {
                     visible: cursorVisible
                 }, void 0, false, {
                     fileName: "[project]/components/orbit-demo.tsx",
-                    lineNumber: 235,
+                    lineNumber: 246,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -376,7 +404,7 @@ function OrbitDemo() {
                                 className: "flex items-center gap-3",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center",
+                                        className: "w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                             width: "16",
                                             height: "16",
@@ -391,7 +419,7 @@ function OrbitDemo() {
                                                     fill: "currentColor"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/orbit-demo.tsx",
-                                                    lineNumber: 244,
+                                                    lineNumber: 255,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -403,28 +431,28 @@ function OrbitDemo() {
                                                     strokeDasharray: "4 2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/orbit-demo.tsx",
-                                                    lineNumber: 245,
+                                                    lineNumber: 256,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/orbit-demo.tsx",
-                                            lineNumber: 243,
+                                            lineNumber: 254,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/orbit-demo.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 253,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-[14px] font-semibold text-[#F97316]",
+                                                className: "text-[14px] font-semibold text-[#3B82F6]",
                                                 children: "Passage Orbit"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 249,
+                                                lineNumber: 260,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,71 +460,80 @@ function OrbitDemo() {
                                                 children: "Build your AI workforce"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 250,
+                                                lineNumber: 261,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/orbit-demo.tsx",
-                                        lineNumber: 248,
+                                        lineNumber: 259,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/orbit-demo.tsx",
-                                lineNumber: 241,
+                                lineNumber: 252,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/orbit-demo.tsx",
-                            lineNumber: 240,
+                            lineNumber: 251,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center gap-2 px-5 py-3 border-b border-white/[0.06]",
+                            className: "flex items-center gap-3 px-5 py-3 border-b border-white/[0.06]",
                             children: [
-                                1,
-                                2,
-                                3
-                            ].map((step)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                {
+                                    num: 1,
+                                    label: "Create Agents"
+                                },
+                                {
+                                    num: 2,
+                                    label: "Connect Systems"
+                                },
+                                {
+                                    num: 3,
+                                    label: "Deploy"
+                                }
+                            ].map((step, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "flex items-center gap-2",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-medium transition-all ${currentStep >= step ? "bg-[#F97316] text-white" : "bg-white/10 text-white/40"}`,
-                                            children: currentStep > step ? "✓" : step
+                                            className: `w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-medium transition-all ${currentStep >= step.num ? "bg-[#3B82F6] text-white" : "bg-white/10 text-white/40"}`,
+                                            children: currentStep > step.num ? "✓" : step.num
                                         }, void 0, false, {
                                             fileName: "[project]/components/orbit-demo.tsx",
-                                            lineNumber: 259,
+                                            lineNumber: 274,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: `text-[11px] ${currentStep >= step ? "text-white" : "text-white/30"}`,
-                                            children: step === 1 ? "Create Agents" : step === 2 ? "Connect Systems" : "Deploy"
+                                            className: `text-[11px] ${currentStep >= step.num ? "text-white" : "text-white/30"}`,
+                                            children: step.label
                                         }, void 0, false, {
                                             fileName: "[project]/components/orbit-demo.tsx",
-                                            lineNumber: 266,
+                                            lineNumber: 281,
                                             columnNumber: 17
                                         }, this),
-                                        step < 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `w-8 h-[2px] ${currentStep > step ? "bg-[#F97316]" : "bg-white/10"}`
+                                        idx < 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: `w-6 h-[2px] ${currentStep > step.num ? "bg-[#3B82F6]" : "bg-white/10"}`
                                         }, void 0, false, {
                                             fileName: "[project]/components/orbit-demo.tsx",
-                                            lineNumber: 269,
-                                            columnNumber: 30
+                                            lineNumber: 284,
+                                            columnNumber: 29
                                         }, this)
                                     ]
-                                }, step, true, {
+                                }, step.num, true, {
                                     fileName: "[project]/components/orbit-demo.tsx",
-                                    lineNumber: 258,
+                                    lineNumber: 273,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/orbit-demo.tsx",
-                            lineNumber: 256,
+                            lineNumber: 267,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "p-5 min-h-[340px]",
+                            className: "p-5 min-h-[380px]",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                                 mode: "wait",
                                 children: [
@@ -519,24 +556,24 @@ function OrbitDemo() {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                         className: "text-[14px] font-medium text-white",
-                                                        children: "Select agents for your university"
+                                                        children: "Create your AI agents"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 286,
+                                                        lineNumber: 301,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-[11px] text-white/40 mt-1",
-                                                        children: "Choose which AI agents you want to deploy"
+                                                        children: "Select which agents to deploy for your university"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 302,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 285,
+                                                lineNumber: 300,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -545,7 +582,7 @@ function OrbitDemo() {
                                                     const isSelected = selectedAgents.includes(agent.id);
                                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                                                         ref: registerRef(`agent-${agent.id}`),
-                                                        className: `p-3 rounded-[6px] border cursor-pointer transition-all ${isSelected ? "bg-white/[0.08] border-white/20" : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04]"}`,
+                                                        className: `p-3 rounded-[6px] border cursor-pointer transition-all ${isSelected ? "bg-white/[0.08] border-white/20" : "bg-white/[0.02] border-white/[0.06]"}`,
                                                         animate: {
                                                             scale: isSelected ? 1.02 : 1,
                                                             borderColor: isSelected ? agent.color + "50" : "rgba(255,255,255,0.06)"
@@ -558,14 +595,14 @@ function OrbitDemo() {
                                                                         className: "flex items-center gap-2",
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold",
+                                                                                className: "w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold",
                                                                                 style: {
                                                                                     backgroundColor: agent.color
                                                                                 },
                                                                                 children: agent.name[0]
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                                lineNumber: 309,
+                                                                                lineNumber: 324,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -575,34 +612,34 @@ function OrbitDemo() {
                                                                                         children: agent.name
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                                        lineNumber: 316,
+                                                                                        lineNumber: 331,
                                                                                         columnNumber: 33
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                        className: "text-[9px]",
+                                                                                        className: "text-[10px]",
                                                                                         style: {
                                                                                             color: agent.color
                                                                                         },
                                                                                         children: agent.role
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                                        lineNumber: 317,
+                                                                                        lineNumber: 332,
                                                                                         columnNumber: 33
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                                lineNumber: 315,
+                                                                                lineNumber: 330,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 308,
+                                                                        lineNumber: 323,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: `w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? "border-[#F97316] bg-[#F97316]" : "border-white/20"}`,
+                                                                        className: `w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? "border-[#3B82F6] bg-[#3B82F6]" : "border-white/20"}`,
                                                                         children: isSelected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].svg, {
                                                                             width: "10",
                                                                             height: "10",
@@ -621,23 +658,23 @@ function OrbitDemo() {
                                                                                 strokeLinecap: "round"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                                lineNumber: 329,
+                                                                                lineNumber: 344,
                                                                                 columnNumber: 35
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/orbit-demo.tsx",
-                                                                            lineNumber: 324,
+                                                                            lineNumber: 339,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 320,
+                                                                        lineNumber: 335,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 307,
+                                                                lineNumber: 322,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -645,19 +682,19 @@ function OrbitDemo() {
                                                                 children: agent.description
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 334,
+                                                                lineNumber: 349,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, agent.id, true, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 294,
+                                                        lineNumber: 309,
                                                         columnNumber: 25
                                                     }, this);
                                                 })
                                             }, void 0, false, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 290,
+                                                lineNumber: 305,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -671,31 +708,31 @@ function OrbitDemo() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 341,
+                                                        lineNumber: 356,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
                                                         ref: registerRef("next-btn"),
-                                                        className: `px-5 py-2 rounded-[5px] text-[12px] font-medium transition-all ${selectedAgents.length > 0 ? "bg-[#F97316] text-white" : "bg-white/10 text-white/30"}`,
+                                                        className: `px-5 py-2 rounded-[5px] text-[12px] font-medium transition-all ${selectedAgents.length > 0 ? "bg-[#3B82F6] text-white" : "bg-white/10 text-white/30"}`,
                                                         whileTap: {
                                                             scale: 0.97
                                                         },
                                                         children: "Next: Connect Systems →"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 344,
+                                                        lineNumber: 359,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 340,
+                                                lineNumber: 355,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, "step1", true, {
                                         fileName: "[project]/components/orbit-demo.tsx",
-                                        lineNumber: 279,
+                                        lineNumber: 294,
                                         columnNumber: 17
                                     }, this),
                                     currentStep === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -717,28 +754,28 @@ function OrbitDemo() {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                         className: "text-[14px] font-medium text-white",
-                                                        children: "Connect your school systems"
+                                                        children: "Connect your systems"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 368,
+                                                        lineNumber: 383,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-[11px] text-white/40 mt-1",
-                                                        children: "Integrate with your existing infrastructure"
+                                                        children: "Integrate with your existing school infrastructure"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 369,
+                                                        lineNumber: 384,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 367,
+                                                lineNumber: 382,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex gap-2 mb-4",
+                                                className: "flex gap-2 mb-4 flex-wrap",
                                                 children: selectedAgents.map((agentId)=>{
                                                     const agent = availableAgents.find((a)=>a.id === agentId);
                                                     if (!agent) return null;
@@ -748,84 +785,33 @@ function OrbitDemo() {
                                                             backgroundColor: agent.color + "20",
                                                             color: agent.color
                                                         },
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "font-medium",
-                                                            children: agent.name
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/orbit-demo.tsx",
-                                                            lineNumber: 383,
-                                                            columnNumber: 27
-                                                        }, this)
-                                                    }, agent.id, false, {
-                                                        fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 378,
-                                                        columnNumber: 25
-                                                    }, this);
-                                                })
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 373,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "space-y-2",
-                                                children: integrations.map((integration)=>{
-                                                    const isConnected = connectedIntegrations.includes(integration.id);
-                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                                                        ref: registerRef(`int-${integration.id}`),
-                                                        className: `flex items-center justify-between p-3 rounded-[6px] border cursor-pointer transition-all ${isConnected ? "bg-[#10B981]/10 border-[#10B981]/30" : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04]"}`,
                                                         children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "w-9 h-9 rounded-[5px] bg-white/10 flex items-center justify-center text-lg",
-                                                                        children: integration.icon
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 403,
-                                                                        columnNumber: 29
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "text-[12px] font-medium text-white",
-                                                                                children: integration.name
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/components/orbit-demo.tsx",
-                                                                                lineNumber: 407,
-                                                                                columnNumber: 31
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "text-[10px] text-white/40",
-                                                                                children: integration.category
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/components/orbit-demo.tsx",
-                                                                                lineNumber: 408,
-                                                                                columnNumber: 31
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 406,
-                                                                        columnNumber: 29
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 402,
-                                                                columnNumber: 27
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: `px-3 py-1 rounded-full text-[10px] font-medium ${isConnected ? "bg-[#10B981]/20 text-[#10B981]" : "bg-white/10 text-white/50"}`,
-                                                                children: isConnected ? "✓ Connected" : "Connect"
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "font-medium",
+                                                                children: agent.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 411,
+                                                                lineNumber: 398,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-white/40",
+                                                                children: "·"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                                lineNumber: 399,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-white/50",
+                                                                children: agent.role
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                                lineNumber: 400,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
-                                                    }, integration.id, true, {
+                                                    }, agent.id, true, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
                                                         lineNumber: 393,
                                                         columnNumber: 25
@@ -833,7 +819,101 @@ function OrbitDemo() {
                                                 })
                                             }, void 0, false, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 389,
+                                                lineNumber: 388,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "grid grid-cols-2 gap-2",
+                                                children: integrations.map((integration)=>{
+                                                    const isConnected = connectedIntegrations.includes(integration.id);
+                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                        ref: registerRef(`int-${integration.id}`),
+                                                        className: `flex items-center justify-between p-2.5 rounded-[6px] border cursor-pointer transition-all ${isConnected ? "bg-[#10B981]/10 border-[#10B981]/30" : "bg-white/[0.02] border-white/[0.06]"}`,
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex items-center gap-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: `w-7 h-7 rounded-[4px] flex items-center justify-center text-[10px] font-bold ${isConnected ? "bg-[#10B981]/20 text-[#10B981]" : "bg-white/10 text-white/50"}`,
+                                                                        children: integration.name.charAt(0)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/components/orbit-demo.tsx",
+                                                                        lineNumber: 420,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                className: "text-[11px] font-medium text-white",
+                                                                                children: integration.name
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                                                lineNumber: 426,
+                                                                                columnNumber: 31
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                className: "text-[9px] text-white/40",
+                                                                                children: integration.category
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                                                lineNumber: 427,
+                                                                                columnNumber: 31
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/components/orbit-demo.tsx",
+                                                                        lineNumber: 425,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                                lineNumber: 419,
+                                                                columnNumber: 27
+                                                            }, this),
+                                                            isConnected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                                initial: {
+                                                                    scale: 0
+                                                                },
+                                                                animate: {
+                                                                    scale: 1
+                                                                },
+                                                                className: "w-4 h-4 rounded-full bg-[#10B981] flex items-center justify-center",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                                    width: "8",
+                                                                    height: "8",
+                                                                    viewBox: "0 0 24 24",
+                                                                    fill: "none",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                        d: "M5 12l5 5L20 7",
+                                                                        stroke: "white",
+                                                                        strokeWidth: "3",
+                                                                        strokeLinecap: "round"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/components/orbit-demo.tsx",
+                                                                        lineNumber: 437,
+                                                                        columnNumber: 33
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/orbit-demo.tsx",
+                                                                    lineNumber: 436,
+                                                                    columnNumber: 31
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                                lineNumber: 431,
+                                                                columnNumber: 29
+                                                            }, this)
+                                                        ]
+                                                    }, integration.id, true, {
+                                                        fileName: "[project]/components/orbit-demo.tsx",
+                                                        lineNumber: 410,
+                                                        columnNumber: 25
+                                                    }, this);
+                                                })
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/orbit-demo.tsx",
+                                                lineNumber: 406,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -847,7 +927,7 @@ function OrbitDemo() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 424,
+                                                        lineNumber: 447,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -871,31 +951,31 @@ function OrbitDemo() {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/orbit-demo.tsx",
-                                                                    lineNumber: 438,
+                                                                    lineNumber: 461,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 "Deploying..."
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/orbit-demo.tsx",
-                                                            lineNumber: 437,
+                                                            lineNumber: 460,
                                                             columnNumber: 25
-                                                        }, this) : "Deploy Agents 🚀"
+                                                        }, this) : "Deploy Agents →"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 427,
+                                                        lineNumber: 450,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 423,
+                                                lineNumber: 446,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, "step2", true, {
                                         fileName: "[project]/components/orbit-demo.tsx",
-                                        lineNumber: 361,
+                                        lineNumber: 376,
                                         columnNumber: 17
                                     }, this),
                                     currentStep === 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -909,10 +989,10 @@ function OrbitDemo() {
                                         },
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-center py-6",
+                                                className: "text-center py-4",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                                                        className: "w-16 h-16 mx-auto mb-4 rounded-full bg-[#10B981]/20 flex items-center justify-center",
+                                                        className: "w-14 h-14 mx-auto mb-3 rounded-full bg-[#10B981]/20 flex items-center justify-center",
                                                         initial: {
                                                             scale: 0
                                                         },
@@ -924,8 +1004,8 @@ function OrbitDemo() {
                                                             delay: 0.2
                                                         },
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                            width: "32",
-                                                            height: "32",
+                                                            width: "28",
+                                                            height: "28",
                                                             viewBox: "0 0 24 24",
                                                             fill: "none",
                                                             className: "text-[#10B981]",
@@ -936,39 +1016,39 @@ function OrbitDemo() {
                                                                 strokeLinecap: "round"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 468,
+                                                                lineNumber: 491,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/orbit-demo.tsx",
-                                                            lineNumber: 467,
+                                                            lineNumber: 490,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 461,
+                                                        lineNumber: 484,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                        className: "text-[16px] font-semibold text-white mb-2",
+                                                        className: "text-[15px] font-semibold text-white mb-1",
                                                         children: "Agents Deployed!"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 471,
+                                                        lineNumber: 494,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-[12px] text-white/50 mb-6",
-                                                        children: "Your AI workforce is now active"
+                                                        className: "text-[11px] text-white/50",
+                                                        children: "Your AI workforce is now active and ready"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 472,
+                                                        lineNumber: 495,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 460,
+                                                lineNumber: 483,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -998,7 +1078,7 @@ function OrbitDemo() {
                                                                 children: agent.name[0]
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 488,
+                                                                lineNumber: 511,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1006,17 +1086,28 @@ function OrbitDemo() {
                                                                 children: agent.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 494,
+                                                                lineNumber: 517,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "flex items-center justify-center gap-1 mt-1",
                                                                 children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].span, {
+                                                                        className: "w-1.5 h-1.5 rounded-full bg-[#10B981]",
+                                                                        animate: {
+                                                                            opacity: [
+                                                                                1,
+                                                                                0.4,
+                                                                                1
+                                                                            ]
+                                                                        },
+                                                                        transition: {
+                                                                            duration: 1.5,
+                                                                            repeat: Infinity
+                                                                        }
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 496,
+                                                                        lineNumber: 519,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1024,25 +1115,25 @@ function OrbitDemo() {
                                                                         children: "Active"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 497,
+                                                                        lineNumber: 524,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 495,
+                                                                lineNumber: 518,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, agent.id, true, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 481,
+                                                        lineNumber: 504,
                                                         columnNumber: 25
                                                     }, this);
                                                 })
                                             }, void 0, false, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 476,
+                                                lineNumber: 499,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1053,11 +1144,11 @@ function OrbitDemo() {
                                                         children: "Connected Systems"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 506,
+                                                        lineNumber: 533,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex gap-2",
+                                                        className: "flex gap-2 flex-wrap",
                                                         children: connectedIntegrations.map((intId)=>{
                                                             const integration = integrations.find((i)=>i.id === intId);
                                                             if (!integration) return null;
@@ -1065,69 +1156,69 @@ function OrbitDemo() {
                                                                 className: "flex items-center gap-1.5 px-2 py-1 rounded bg-white/[0.05] text-[10px] text-white/60",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        children: integration.icon
+                                                                        className: "w-1.5 h-1.5 rounded-full bg-[#10B981]"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 513,
+                                                                        lineNumber: 540,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         children: integration.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                                        lineNumber: 514,
+                                                                        lineNumber: 541,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, intId, true, {
                                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                                lineNumber: 512,
+                                                                lineNumber: 539,
                                                                 columnNumber: 27
                                                             }, this);
                                                         })
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/orbit-demo.tsx",
-                                                        lineNumber: 507,
+                                                        lineNumber: 534,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/orbit-demo.tsx",
-                                                lineNumber: 505,
+                                                lineNumber: 532,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, "step3", true, {
                                         fileName: "[project]/components/orbit-demo.tsx",
-                                        lineNumber: 455,
+                                        lineNumber: 478,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/orbit-demo.tsx",
-                                lineNumber: 276,
+                                lineNumber: 291,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/orbit-demo.tsx",
-                            lineNumber: 275,
+                            lineNumber: 290,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/orbit-demo.tsx",
-                    lineNumber: 237,
+                    lineNumber: 248,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/orbit-demo.tsx",
-            lineNumber: 228,
+            lineNumber: 239,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/orbit-demo.tsx",
-        lineNumber: 226,
+        lineNumber: 237,
         columnNumber: 5
     }, this);
 }

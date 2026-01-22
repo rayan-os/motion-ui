@@ -28,6 +28,13 @@ export default function HomePage() {
           >
             Training Demo - Admissions Portal
           </Link>
+          
+          <Link 
+            href="/policy-demo"
+            className="px-8 py-4 bg-[#8B5CF6] text-white font-medium rounded-lg hover:bg-[#8B5CF6]/80 transition"
+          >
+            Policy to Code - Workflow Builder
+          </Link>
         </div>
       </div>
     </main>

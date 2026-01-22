@@ -1,4 +1,4 @@
-import AgentJackieDemo from "@/components/agent-jackie-demo";
+import AgentJackieDemo from "@/components/jackie/agent-jackie-demo";
 
 export default function JackieDemoPage() {
   return <AgentJackieDemo />;
