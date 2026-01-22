@@ -33,7 +33,8 @@ const chatFlow: ChatMessage[] = [
   { id: "2", role: "user", content: "Yes, I'm ready" },
   { id: "3", role: "assistant", content: "Great! Tell me about yourself and why you're interested in this program.", isVideo: true },
   { id: "4", role: "user", content: "I'm a motivated student passionate about technology...", isVideo: true },
-  { id: "5", role: "assistant", content: "Excellent! Here's your skill assessment:", skills: assessedSkills, showComplete: true },
+  { id: "5", role: "assistant", content: "Excellent! Here's your skill assessment:", skills: assessedSkills },
+  { id: "6", role: "assistant", content: "Your application has been submitted!", showComplete: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -198,11 +199,18 @@ export default function AgentEllaDemo() {
           await new Promise(r => setTimeout(r, 400));
         }
 
+        // Show application sent
+        await new Promise(r => setTimeout(r, 500));
+        setIsTyping(true);
+        await new Promise(r => setTimeout(r, 400));
+        setIsTyping(false);
+        setChatMessages(prev => [...prev, chatFlow[5]]);
+
         // Hide cursor
         setCursorVisible(false);
 
         // Hold
-        await new Promise(r => setTimeout(r, 3500));
+        await new Promise(r => setTimeout(r, 3000));
       }
     };
 
@@ -299,21 +307,21 @@ export default function AgentEllaDemo() {
                         </motion.div>
                       )}
 
-                      {/* Interview complete */}
+                      {/* Application sent */}
                       {msg.showComplete && (
                         <motion.div
-                          className="mt-2 p-3 rounded-[6px] bg-[#EAB308]/15 border border-[#EAB308]/25"
+                          className="mt-2 p-3 rounded-[6px] bg-[#30D158]/15 border border-[#30D158]/25"
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.5 }}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="flex items-center gap-2">
-                            <div className="w-5 h-5 rounded-[4px] bg-[#EAB308]/20 flex items-center justify-center">
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#EAB308]">
+                            <div className="w-5 h-5 rounded-[4px] bg-[#30D158]/20 flex items-center justify-center">
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#30D158]">
                                 <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                               </svg>
                             </div>
-                            <span className="text-[12px] font-medium text-[#EAB308]">Interview Complete</span>
+                            <span className="text-[12px] font-medium text-[#30D158]">Application Sent</span>
                           </div>
                         </motion.div>
                       )}
