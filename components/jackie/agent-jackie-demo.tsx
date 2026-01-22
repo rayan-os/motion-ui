@@ -14,11 +14,24 @@ interface Program {
   color: string;
 }
 
+interface Job {
+  title: string;
+  salary: string;
+  color: string;
+}
+
+interface DocItem {
+  name: string;
+  required: boolean;
+}
+
 interface ChatMessage {
   id: string;
   role: "assistant" | "user";
   content: string;
   programs?: Program[];
+  jobs?: Job[];
+  docs?: DocItem[];
   showApplication?: boolean;
 }
 
@@ -28,12 +41,27 @@ const foundPrograms: Program[] = [
   { name: "Software Development", school: "Diploma", duration: "2 years", color: "from-amber-500/20 to-orange-500/20" },
 ];
 
+const jobOpportunities: Job[] = [
+  { title: "ML Engineer", salary: "$120k - $180k", color: "from-emerald-500/20 to-teal-500/20" },
+  { title: "Data Scientist", salary: "$100k - $150k", color: "from-violet-500/20 to-purple-500/20" },
+  { title: "Software Developer", salary: "$90k - $140k", color: "from-rose-500/20 to-pink-500/20" },
+];
+
+const requiredDocs: DocItem[] = [
+  { name: "High School Transcript", required: true },
+  { name: "English Proficiency Test", required: true },
+  { name: "Letter of Intent", required: true },
+  { name: "Resume (optional)", required: false },
+];
+
 const chatFlow: ChatMessage[] = [
   { id: "1", role: "assistant", content: "Hi, I'm Jackie! What program would you like to study?" },
   { id: "2", role: "user", content: "computer science" },
   { id: "3", role: "assistant", content: "Here are some programs for you:", programs: foundPrograms },
   { id: "4", role: "user", content: "Computer Programming looks good" },
-  { id: "5", role: "assistant", content: "Application submitted!", showApplication: true },
+  { id: "5", role: "assistant", content: "Great choice! What career are you interested in?", jobs: jobOpportunities },
+  { id: "6", role: "user", content: "I wanna be ML Engineer" },
+  { id: "7", role: "assistant", content: "Here are the docs needed to apply:", docs: requiredDocs, showApplication: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -173,12 +201,19 @@ export default function AgentJackieDemo() {
         if (inputPos2) setCursorPosition(inputPos2);
         await new Promise(r => setTimeout(r, 200));
         await typeAndSend("Computer Programming looks good", 3);
+        await new Promise(r => setTimeout(r, 800));
+
+        // Exchange 3: select job
+        const inputPos3 = getPos("chat-input");
+        if (inputPos3) setCursorPosition(inputPos3);
+        await new Promise(r => setTimeout(r, 200));
+        await typeAndSend("I wanna be ML Engineer", 5);
 
         // Hide cursor
         setCursorVisible(false);
 
-        // Hold on confirmation
-        await new Promise(r => setTimeout(r, 3000));
+        // Hold on docs
+        await new Promise(r => setTimeout(r, 3500));
       }
     };
 
@@ -265,25 +300,89 @@ export default function AgentJackieDemo() {
                         </motion.div>
                       )}
 
-                      {/* Application confirmation */}
+                      {/* Job opportunities */}
+                      {msg.jobs && (
+                        <motion.div 
+                          className="mt-2 space-y-1.5"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.1 }}
+                        >
+                          {msg.jobs.map((job, idx) => (
+                            <motion.div
+                              key={job.title}
+                              className={`flex items-center gap-3 p-2.5 rounded-[6px] bg-gradient-to-r ${job.color} border border-white/[0.08]`}
+                              initial={{ opacity: 0, x: -8 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.05 + idx * 0.08 }}
+                            >
+                              <div className="w-8 h-8 rounded-[5px] bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-white/70">
+                                  <path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z" stroke="currentColor" strokeWidth="2"/>
+                                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="2"/>
+                                </svg>
+                              </div>
+                              <div className="min-w-0">
+                                <div className="text-[12px] font-medium text-white truncate">{job.title}</div>
+                                <div className="text-[10px] text-white/50 mt-0.5">{job.salary}</div>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      )}
+
+                      {/* Required documents */}
+                      {msg.docs && (
+                        <motion.div 
+                          className="mt-2 p-3 rounded-[6px] bg-white/[0.03] border border-white/[0.08]"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.1 }}
+                        >
+                          <div className="space-y-2">
+                            {msg.docs.map((doc, idx) => (
+                              <motion.div
+                                key={doc.name}
+                                className="flex items-center gap-2"
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.1 + idx * 0.08 }}
+                              >
+                                <div className={`w-4 h-4 rounded-full flex items-center justify-center ${doc.required ? 'bg-[#007AFF]/20' : 'bg-white/10'}`}>
+                                  {doc.required ? (
+                                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" className="text-[#007AFF]">
+                                      <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                                    </svg>
+                                  ) : (
+                                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" className="text-white/30">
+                                      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
+                                    </svg>
+                                  )}
+                                </div>
+                                <span className={`text-[11px] ${doc.required ? 'text-white/80' : 'text-white/40'}`}>
+                                  {doc.name}
+                                </span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+
+                      {/* Application ready */}
                       {msg.showApplication && (
                         <motion.div
                           className="mt-2 p-3 rounded-[6px] bg-[#30D158]/15 border border-[#30D158]/25"
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.1 }}
+                          transition={{ delay: 0.3 }}
                         >
-                          <div className="flex items-center gap-2 mb-2">
+                          <div className="flex items-center gap-2">
                             <div className="w-5 h-5 rounded-[4px] bg-[#30D158]/20 flex items-center justify-center">
                               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#30D158]">
                                 <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                               </svg>
                             </div>
-                            <span className="text-[12px] font-medium text-[#30D158]">Application Confirmed</span>
-                          </div>
-                          <div className="text-[11px] text-white/50">
-                            <p>Computer Programming</p>
-                            <p className="text-white/30">Diploma · 2 years</p>
+                            <span className="text-[12px] font-medium text-[#30D158]">Ready to apply</span>
                           </div>
                         </motion.div>
                       )}
