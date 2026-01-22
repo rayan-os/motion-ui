@@ -55,13 +55,13 @@ const requiredDocs: DocItem[] = [
 ];
 
 const chatFlow: ChatMessage[] = [
-  { id: "1", role: "assistant", content: "Hi, I'm Jackie! What program would you like to study?" },
-  { id: "2", role: "user", content: "computer science" },
-  { id: "3", role: "assistant", content: "Here are some programs for you:", programs: foundPrograms },
-  { id: "4", role: "user", content: "Computer Programming looks good" },
-  { id: "5", role: "assistant", content: "Great choice! What career are you interested in?", jobs: jobOpportunities },
-  { id: "6", role: "user", content: "I wanna be ML Engineer" },
-  { id: "7", role: "assistant", content: "Here are the docs needed to apply:", docs: requiredDocs, showApplication: true },
+  { id: "1", role: "user", content: "hello" },
+  { id: "2", role: "assistant", content: "Hi, I'm Jackie, your AI counselor. Tell me a bit about yourself so I can find you programs." },
+  { id: "3", role: "user", content: "I'm a high school student interested in computer science" },
+  { id: "4", role: "assistant", content: "Great! Here are some programs for you:", programs: foundPrograms },
+  { id: "5", role: "assistant", content: "And some career paths you could pursue:", jobs: jobOpportunities },
+  { id: "6", role: "user", content: "ML Engineer sounds great" },
+  { id: "7", role: "assistant", content: "Here's what you'll need to apply:", docs: requiredDocs, showApplication: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -182,32 +182,35 @@ export default function AgentJackieDemo() {
 
         await new Promise(r => setTimeout(r, 400));
 
-        // Jackie greeting
-        setChatMessages([chatFlow[0]]);
-        await new Promise(r => setTimeout(r, 800));
-
         // Show cursor
         setCursorVisible(true);
         const inputPos = getPos("chat-input");
         if (inputPos) setCursorPosition(inputPos);
         await new Promise(r => setTimeout(r, 300));
 
-        // Exchange 1: computer science
-        await typeAndSend("computer science", 1);
-        await new Promise(r => setTimeout(r, 800));
+        // User says hello
+        await typeAndSend("hello", 0);
+        await new Promise(r => setTimeout(r, 600));
 
-        // Exchange 2: select program
+        // User provides info
         const inputPos2 = getPos("chat-input");
         if (inputPos2) setCursorPosition(inputPos2);
         await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("Computer Programming looks good", 3);
+        await typeAndSend("I'm a high school student interested in computer science", 2);
+        await new Promise(r => setTimeout(r, 600));
+
+        // Jackie shows programs, then careers
+        setIsTyping(true);
+        await new Promise(r => setTimeout(r, 400));
+        setIsTyping(false);
+        setChatMessages(prev => [...prev, chatFlow[4]]);
         await new Promise(r => setTimeout(r, 800));
 
-        // Exchange 3: select job
+        // User selects career
         const inputPos3 = getPos("chat-input");
         if (inputPos3) setCursorPosition(inputPos3);
         await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("I wanna be ML Engineer", 5);
+        await typeAndSend("ML Engineer sounds great", 5);
 
         // Hide cursor
         setCursorVisible(false);
