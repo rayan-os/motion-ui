@@ -349,7 +349,7 @@ export default function PolicyToCode() {
   const [afterSequenceStep, setAfterSequenceStep] = useState(0);
   const [afterSequenceComplete, setAfterSequenceComplete] = useState(false);
 
-  const activeRuleId = selectedRule || hoveredRule || (hoveredNode ? workflowNodes.find(n => n.id === hoveredNode)?.linkedRules[0] : null);
+  const activeRuleId = selectedRule || hoveredRule || (hoveredNode ? workflowNodes.find(n => n.id === hoveredNode)?.linkedRules[0] ?? null : null);
   const activeRule = ruleChips.find(r => r.id === activeRuleId) || null;
   const highlightedNodes = activeRuleId ? (ruleChips.find(r => r.id === activeRuleId)?.linkedNodes || []) : [];
 
