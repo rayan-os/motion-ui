@@ -36,32 +36,18 @@ interface ChatMessage {
 }
 
 const foundPrograms: Program[] = [
-  { name: "Computer Programming", school: "Diploma", duration: "2 years", color: "from-blue-500/20 to-cyan-500/20" },
-  { name: "Computer Science", school: "Degree", duration: "4 years", color: "from-purple-500/20 to-pink-500/20" },
-  { name: "Software Development", school: "Diploma", duration: "2 years", color: "from-amber-500/20 to-orange-500/20" },
-];
-
-const jobOpportunities: Job[] = [
-  { title: "ML Engineer", salary: "$120k - $180k", color: "from-emerald-500/20 to-teal-500/20" },
-  { title: "Data Scientist", salary: "$100k - $150k", color: "from-violet-500/20 to-purple-500/20" },
-  { title: "Software Developer", salary: "$90k - $140k", color: "from-rose-500/20 to-pink-500/20" },
-];
-
-const requiredDocs: DocItem[] = [
-  { name: "High School Transcript", required: true },
-  { name: "English Proficiency Test", required: true },
-  { name: "Letter of Intent", required: true },
-  { name: "Resume (optional)", required: false },
+  { name: "IT Support", school: "Diploma", duration: "1 year", color: "from-blue-500/20 to-cyan-500/20" },
+  { name: "Software Development", school: "Diploma", duration: "2 years", color: "from-purple-500/20 to-pink-500/20" },
+  { name: "Data Analytics", school: "Diploma", duration: "2 years", color: "from-amber-500/20 to-orange-500/20" },
 ];
 
 const chatFlow: ChatMessage[] = [
-  { id: "1", role: "user", content: "hello" },
-  { id: "2", role: "assistant", content: "Hi, I'm Jackie, your AI counselor. Tell me a bit about yourself so I can find you programs." },
-  { id: "3", role: "user", content: "I'm a high school student interested in computer science" },
-  { id: "4", role: "assistant", content: "Great! Here are some programs for you:", programs: foundPrograms },
-  { id: "5", role: "assistant", content: "And some career paths you could pursue:", jobs: jobOpportunities },
-  { id: "6", role: "user", content: "ML Engineer sounds great" },
-  { id: "7", role: "assistant", content: "Here's what you'll need to apply:", docs: requiredDocs, showApplication: true },
+  { id: "1", role: "user", content: "Hi Jackie, I want to apply but I'm not sure which program fits" },
+  { id: "2", role: "assistant", content: "I can match you fast. What are you aiming for — tech, healthcare, or trades?" },
+  { id: "3", role: "user", content: "Tech" },
+  { id: "4", role: "assistant", content: "Great. Upload your transcript, I'll pre-check eligibility and shortlist programs." },
+  { id: "5", role: "user", content: "Uploaded" },
+  { id: "6", role: "assistant", content: "You're eligible! Top matches are ready:", programs: foundPrograms, showApplication: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -188,34 +174,27 @@ export default function AgentJackieDemo() {
         if (inputPos) setCursorPosition(inputPos);
         await new Promise(r => setTimeout(r, 300));
 
-        // User says hello
-        await typeAndSend("hello", 0);
+        // User asks for help
+        await typeAndSend("Hi Jackie, I want to apply but I'm not sure which program fits", 0);
         await new Promise(r => setTimeout(r, 600));
 
-        // User provides info
+        // User says Tech
         const inputPos2 = getPos("chat-input");
         if (inputPos2) setCursorPosition(inputPos2);
         await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("I'm a high school student interested in computer science", 2);
+        await typeAndSend("Tech", 2);
         await new Promise(r => setTimeout(r, 600));
 
-        // Jackie shows programs, then careers
-        setIsTyping(true);
-        await new Promise(r => setTimeout(r, 400));
-        setIsTyping(false);
-        setChatMessages(prev => [...prev, chatFlow[4]]);
-        await new Promise(r => setTimeout(r, 800));
-
-        // User selects career
+        // User uploads transcript
         const inputPos3 = getPos("chat-input");
         if (inputPos3) setCursorPosition(inputPos3);
         await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("ML Engineer sounds great", 5);
+        await typeAndSend("Uploaded", 4);
 
         // Hide cursor
         setCursorVisible(false);
 
-        // Hold on docs
+        // Hold on results
         await new Promise(r => setTimeout(r, 3500));
       }
     };
