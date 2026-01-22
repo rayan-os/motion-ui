@@ -49,6 +49,13 @@ export default function HomePage() {
           >
             Lens Demo - AI Processor (David)
           </Link>
+          
+          <Link 
+            href="/ella-demo"
+            className="px-8 py-4 bg-[#EAB308] text-white font-medium rounded-lg hover:bg-[#EAB308]/80 transition"
+          >
+            Ella Demo - AI Interviewer
+          </Link>
         </div>
       </div>
     </main>
