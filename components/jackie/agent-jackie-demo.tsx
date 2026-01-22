@@ -42,12 +42,11 @@ const foundPrograms: Program[] = [
 ];
 
 const chatFlow: ChatMessage[] = [
-  { id: "1", role: "user", content: "Hi Jackie, I want to apply but I'm not sure which program fits" },
-  { id: "2", role: "assistant", content: "I can match you fast. What are you aiming for — tech, healthcare, or trades?" },
-  { id: "3", role: "user", content: "Tech" },
-  { id: "4", role: "assistant", content: "Great. Upload your transcript, I'll pre-check eligibility and shortlist programs." },
-  { id: "5", role: "user", content: "Uploaded" },
-  { id: "6", role: "assistant", content: "You're eligible! Top matches are ready:", programs: foundPrograms, showApplication: true },
+  { id: "1", role: "assistant", content: "Hi, I'm Jackie! I can help you find the right program. What are you aiming for — tech, healthcare, or trades?" },
+  { id: "2", role: "user", content: "Tech" },
+  { id: "3", role: "assistant", content: "Great. Upload your transcript, I'll pre-check eligibility and shortlist programs." },
+  { id: "4", role: "user", content: "Uploaded" },
+  { id: "5", role: "assistant", content: "You're eligible! Top matches are ready:", programs: foundPrograms, showApplication: true },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -168,28 +167,25 @@ export default function AgentJackieDemo() {
 
         await new Promise(r => setTimeout(r, 400));
 
+        // Jackie greeting
+        setChatMessages([chatFlow[0]]);
+        await new Promise(r => setTimeout(r, 800));
+
         // Show cursor
         setCursorVisible(true);
         const inputPos = getPos("chat-input");
         if (inputPos) setCursorPosition(inputPos);
         await new Promise(r => setTimeout(r, 300));
 
-        // User asks for help
-        await typeAndSend("Hi Jackie, I want to apply but I'm not sure which program fits", 0);
-        await new Promise(r => setTimeout(r, 600));
-
         // User says Tech
-        const inputPos2 = getPos("chat-input");
-        if (inputPos2) setCursorPosition(inputPos2);
-        await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("Tech", 2);
+        await typeAndSend("Tech", 1);
         await new Promise(r => setTimeout(r, 600));
 
         // User uploads transcript
-        const inputPos3 = getPos("chat-input");
-        if (inputPos3) setCursorPosition(inputPos3);
+        const inputPos2 = getPos("chat-input");
+        if (inputPos2) setCursorPosition(inputPos2);
         await new Promise(r => setTimeout(r, 200));
-        await typeAndSend("Uploaded", 4);
+        await typeAndSend("Uploaded", 3);
 
         // Hide cursor
         setCursorVisible(false);
